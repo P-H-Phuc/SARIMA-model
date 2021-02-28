@@ -37,17 +37,22 @@ Trong đó:
     - Dự báo và kiểm tra kết quả cho dữ liệu ngoài mẫu
   - Kết luận
   - Tải dữ liệu [tại đây](https://github.com/P-H-Phuc/Phantichdulieu/raw/main/VietnamGas.xlsx)
-
   
-## Dữ liệu giá trị xuất khẩu xăng dầu hoả của Việt Nam 2010 - 2020
+Dữ liệu giá trị xuất khẩu xăng, dầu hoả của Việt Nam 2010 - 2020
 ========================================================
 
-![plotdata](./Sarima-figure/plotdata-1.png)
+<img src="Sarima-figure/unnamed-chunk-2-1.png" title="plot of chunk unnamed-chunk-2" alt="plot of chunk unnamed-chunk-2" style="display: block; margin: auto;" />
 
-## Thống kê mô tả
+Thống kê mô tả
 ========================================================
+type: prompt
+left: 50%
 
 Kết quả thống kê mô tả giá trị xuất khẩu xăng, dầu hoả:
+
+```r
+summary(export)
+```
 
 ```
       time                value       
@@ -69,7 +74,7 @@ Kết quả thống kê mô tả giá trị xuất khẩu xăng, dầu hoả:
 boxplot(export$value, col = "steelblue")
 ```
 
-<img src="Sarima-figure/stat_description-1.png" title="plot of chunk stat_description" alt="plot of chunk stat_description" style="display: block; margin: auto;" />
+<img src="Sarima-figure/unnamed-chunk-4-1.png" title="plot of chunk unnamed-chunk-4" alt="plot of chunk unnamed-chunk-4" style="display: block; margin: auto;" />
 
 Chia tách dữ liệu để xây dựng và kiểm tra mô hình
 ========================================================
@@ -92,7 +97,7 @@ autoplot(training, color = "blue", size = 1) +
   theme_minimal()
 ```
 
-<img src="Sarima-figure/split data plot-1.png" title="plot of chunk split data plot" alt="plot of chunk split data plot" style="display: block; margin: auto;" />
+<img src="Sarima-figure/unnamed-chunk-5-1.png" title="plot of chunk unnamed-chunk-5" alt="plot of chunk unnamed-chunk-5" style="display: block; margin: auto;" />
 
 Kiểm tra tính dừng của chuỗi dữ liệu (training time series)
 ========================================================
@@ -147,7 +152,7 @@ class: small-code
 tsdisplay(diff_1, lwd = 2, points = F)
 ```
 
-<img src="Sarima-figure/different 1 plot-1.png" title="plot of chunk different 1 plot" alt="plot of chunk different 1 plot" style="display: block; margin: auto;" />
+<img src="Sarima-figure/unnamed-chunk-8-1.png" title="plot of chunk unnamed-chunk-8" alt="plot of chunk unnamed-chunk-8" style="display: block; margin: auto;" />
   - Từ đồ thị PACF, các bậc của AR có thể có: p = {0, 1}
   - Từ đồ thị ACF, các bậc của MA có thế có: q = {0, 1, 5}
 
@@ -191,7 +196,7 @@ component <- decompose(diff_1)
 plot(component, lwd = 2)
 ```
 
-<img src="Sarima-figure/decompose plot-1.png" title="plot of chunk decompose plot" alt="plot of chunk decompose plot" style="display: block; margin: auto;" />
+<img src="Sarima-figure/unnamed-chunk-10-1.png" title="plot of chunk unnamed-chunk-10" alt="plot of chunk unnamed-chunk-10" style="display: block; margin: auto;" />
 
 Kiểm tra tính dừng chuỗi mùa vụ
 ========================================================
@@ -223,7 +228,7 @@ class: small-code
 tsdisplay(component$seasonal, lwd = 2, points = F, main = "")
 ```
 
-<img src="Sarima-figure/seasonal plot-1.png" title="plot of chunk seasonal plot" alt="plot of chunk seasonal plot" style="display: block; margin: auto;" />
+<img src="Sarima-figure/unnamed-chunk-12-1.png" title="plot of chunk unnamed-chunk-12" alt="plot of chunk unnamed-chunk-12" style="display: block; margin: auto;" />
 
   - Từ đồ thị PACF: P = {0, 1}
   - Đồ thị ACF: Q = {0, 1}
@@ -393,7 +398,7 @@ lines(model$fitted, col = "red", lwd = 2, type = "l")
 legend(2015, 230, legend = c("Data", "Forecast"), col = c("black", "red"), lty=1:1, box.lty=0, text.font=2)
 ```
 
-<img src="Sarima-figure/predict plot-1.png" title="plot of chunk predict plot" alt="plot of chunk predict plot" style="display: block; margin: auto;" />
+<img src="Sarima-figure/unnamed-chunk-18-1.png" title="plot of chunk unnamed-chunk-18" alt="plot of chunk unnamed-chunk-18" style="display: block; margin: auto;" />
 
 
 ```
@@ -442,7 +447,7 @@ plot(predict, lwd = 2)
 legend(2014, 280, legend = c("Data", "Forecast"), col = c("black", "#009ACD"), lty=1:1, box.lty=0, text.font=2)
 ```
 
-<img src="Sarima-figure/predict out sample plot-1.png" title="plot of chunk predict out sample plot" alt="plot of chunk predict out sample plot" style="display: block; margin: auto;" />
+<img src="Sarima-figure/unnamed-chunk-21-1.png" title="plot of chunk unnamed-chunk-21" alt="plot of chunk unnamed-chunk-21" style="display: block; margin: auto;" />
 
 Kiểm tra kết quả dự báo
 =========================================================
@@ -460,7 +465,7 @@ lines(predict$mean, col = "red", lwd = 2)
 legend(2020.1, 180, legend = c("Data", "Forecast"), col = c("black", "red"), lty=1:1, box.lty=0, text.font=2)
 ```
 
-<img src="Sarima-figure/test predict plot-1.png" title="plot of chunk test predict plot" alt="plot of chunk test predict plot" style="display: block; margin: auto;" />
+<img src="Sarima-figure/unnamed-chunk-22-1.png" title="plot of chunk unnamed-chunk-22" alt="plot of chunk unnamed-chunk-22" style="display: block; margin: auto;" />
 
 ***
 <br></br>
@@ -482,7 +487,7 @@ predict = forecast(model, h = 12)
 plot(predict, lwd = 2)
 ```
 
-<img src="Sarima-figure/predict plot 2021-1.png" title="plot of chunk predict plot 2021" alt="plot of chunk predict plot 2021" style="display: block; margin: auto;" />
+<img src="Sarima-figure/unnamed-chunk-24-1.png" title="plot of chunk unnamed-chunk-24" alt="plot of chunk unnamed-chunk-24" style="display: block; margin: auto;" />
 
 
 Kết luận 

@@ -41,6 +41,7 @@ Trong đó:
   
 ## Dữ liệu giá trị xuất khẩu xăng dầu hoả của Việt Nam 2010 - 2020
 ========================================================
+
 ![plotdata](./Sarima-figure/plotdata-1.png)
 
 ## Thống kê mô tả

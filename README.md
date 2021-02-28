@@ -1,93 +1,37 @@
-# Phan tich du lieu
-<style>
-.section .reveal .state-background {
-  background: #00688B;
-} 
-.section .reveal h1, h2 {
-    color: white; text-align: center;
-    font-weight: bold; font-size: 62px;
-    font-family: Times New Roman;
-}
-.reveal h3 {
-  font-weight: bold; text-align: center;
-  font-family: Times New Roman; font-size: 36px;
-  color: darkred;
-}
-.reveal .slides section .slideContent {
-   font-size: 32px;
-   color: black;
-}
-.anhnen .reveal .state-background {
-   background-color: #00688B;
-}
-.small-code pre code {
-  font-size: 1.2em;
-  font-weight: bold;
-}
-
-div.hideme + pre {display: none;
-}
-
-#title {
-  text-align: center; 
-  font-weight: bold;
-}
-</style>
-
-PHƯƠNG PHÁP DỰ BÁO BẰNG SARIMA
-========================================================
-font-family: Times New Roman
-width: 1440
-
-<script>
-doclick = function(e){
-code = e.parentNode.nextSibling.nextSibling.nextSibling.nextSibling
-if(code.style.display=="block"){
- code.style.display='none';
- e.textContent="Show Code"
-} else {
- code.style.display="block";
- e.textContent="Hide Code"
-}
-}
-</script>
-
-<p style  = "font-size: 42px; text-decoration: underline; font-family: Times New Roman; text-align: center; font-weight: bold;"> 
-    Nhóm 9 </p>
-
-<p style = "font-size: 36px; text-align: center;"> 1. Phan Hồng Phúc&emsp;&nbsp; K184131497 </p>
-
-<p style = "font-size: 36px; text-align: center;"> 2. Lê Thị Kim Thuý&emsp;&nbsp; K184131504 </p>  
-
-<p style = "font-size: 36px; text-align: center;"> 3. Nguyễn Thanh Trang &emsp; K184131506 </p>
-
-Giới thiệu mô hình SARIMA
+# PHƯƠNG PHÁP DỰ BÁO BẰNG SARIMA
 ========================================================
 
-Mô hình SARIMA là mô hình ARIMA nhưng được điều chỉnh được áp dụng cho những chuỗi thời gian có yếu tố mùa vụ:  
-<p id = "title"> SARIMA(p, d, q) (P, D, Q)m </p>
+	1. Phan Hồng Phúc	K184131497 
+
+	2. Lê Thị Kim Thuý	K184131504
+
+	3. Nguyễn Thanh Trang	K184131506
+
+# Giới thiệu mô hình SARIMA
+========================================================
+
+Mô hình SARIMA là mô hình ARIMA nhưng được điều chỉnh được áp dụng cho những chuỗi thời gian có yếu tố mùa vụ: 
+
+	SARIMA(p, d, q) (P, D, Q)m
+
 Trong đó:
   - p, q lần lượt là bậc của quá trình tự hồi quy AR và trung bình trượt MA của chuỗi dữ liệu
+
   - d là bậc sai phân mà tại đó chuỗi là chuỗi dừng
+
   - P, Q lần lượt là bậc của quá trình tự hồi quy AR và trung bình trượt MA của chuỗi mùa vụ
+
   - D là bậc sai phân mà tại đó chuỗi mùa vụ là chuỗi dừng
+
   - m là số giai đoạn trong một chu kỳ
 
-Nội dung
+# Table of contents
 ========================================================
-<button class="hidecode" onclick="doclick(this);"> Show Code </button>
-<div class="hideme"></div>  
 
-```r
-library(readxl)
-library(tidyverse)
-library(forecast)
-library(tseries)
-library(seastests)
-library(lubridate)
-library(lmtest)
-library(knitr)
-```
+
+# Nội dung
+========================================================
+
   - Tổng quan về dữ liệu nghiên cứu (thống kê mô tả, vẽ đồ thị, chia tách dữ liệu,...) 
   - Xây dựng mô hình SARIMA:
     - Kiểm tra tính dừng của chuỗi dữ liệu và chuỗi mùa vụ bằng kiểm định ADF
@@ -99,16 +43,9 @@ library(knitr)
   - Tải dữ liệu [tại đây](https://github.com/P-H-Phuc/Phantichdulieu/raw/main/VietnamGas.xlsx)
 
   
-Dữ liệu giá trị xuất khẩu xăng, dầu hoả của Việt Nam 2010 - 2020
+# Dữ liệu giá trị xuất khẩu xăng, dầu hoả của Việt Nam 2010 - 2020
 ========================================================
-class: small-code
-type: prompt
-
-<button class="hidecode" onclick="doclick(this);"> Show Code </button>
-<div class="hideme"></div>
-
-
-```r
+```r echo=FALSE
 # Read file
 export <- readxl::read_xlsx('VietnamGas.xlsx', sheet = 'data')
 export$time <- as.Date(export$time)

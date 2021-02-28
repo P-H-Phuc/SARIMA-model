@@ -45,7 +45,7 @@ Trong đó:
   
 # Dữ liệu giá trị xuất khẩu xăng, dầu hoả của Việt Nam 2010 - 2020
 ========================================================
-```r include=FALSE
+```{r include=FALSE, echo=FALSE}
 # Read file
 export <- readxl::read_xlsx('VietnamGas.xlsx', sheet = 'data')
 export$time <- as.Date(export$time)

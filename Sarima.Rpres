@@ -365,7 +365,7 @@ checkresiduals(model, plot = F, main = "Residuals from SARIMA(0, 1, 1)(0, 0, 2)[
 **Chuỗi phần dư là chuỗi nhiễu trắng, không có tự tương quan bậc 1. Mô hình SARIMA này dự báo tốt.**
 
 ***
-<center><img src = "checkresid.png" style = "width: 900px; height: 530px;"></center>
+<center><img src = "image/checkresid.png" style = "width: 900px; height: 530px;"></center>
 
 Dự báo ngoài mẫu
 ========================================================

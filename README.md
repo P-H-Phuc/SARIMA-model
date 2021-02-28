@@ -270,7 +270,6 @@ Model df: 3.   Total lags used: 19
 
 **Chuỗi phần dư là chuỗi nhiễu trắng, không có tự tương quan bậc 1. Mô hình SARIMA này dự báo tốt.**
 
-***
 <center><img src = "image/checkresid.png" style = "width: 900px; height: 530px;"></center>
 
 ## Dự báo ngoài mẫu

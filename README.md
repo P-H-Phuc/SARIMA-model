@@ -277,7 +277,7 @@ Model df: 3.   Total lags used: 19
 
 <img src="Sarima-figure/unnamed-chunk-21-1.png" title="plot of chunk unnamed-chunk-21" alt="plot of chunk unnamed-chunk-21" style="display: block; margin: auto;" />
 
-Kiểm tra kết quả dự báo
+## Kiểm tra kết quả dự báo
 =========================================================
 
 <img src="Sarima-figure/unnamed-chunk-22-1.png" title="plot of chunk unnamed-chunk-22" alt="plot of chunk unnamed-chunk-22" style="display: block; margin: auto;" />

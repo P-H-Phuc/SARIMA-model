@@ -25,11 +25,6 @@ Trong đó:
 
   - m là số giai đoạn trong một chu kỳ
 
-## Table of contents
-========================================================
-
-* [Dữ liệu xăng, dầu hoả của Việt Nam 2010 -2020](#Dữ-liệu-giá-trị-xuất-khẩu-xăng-dầu-hoả-của-Việt-Nam 2010---2020)
-
 ## Nội dung
 ========================================================
 
@@ -46,8 +41,7 @@ Trong đó:
   
 ## Dữ liệu giá trị xuất khẩu xăng dầu hoả của Việt Nam 2010 - 2020
 ========================================================
-
-<img src="Sarima-figure/plotdata-1.png" title="plot of chunk plotdata" alt="plot of chunk plotdata" style="display: block; margin: auto;" />
+![plotdata](Sarima-figure/plotdata-1.png)
 
 ## Thống kê mô tả
 ========================================================

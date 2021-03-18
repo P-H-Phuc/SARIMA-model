@@ -43,6 +43,11 @@ Trong đó:
 
 <img src="Sarima-figure/unnamed-chunk-2-1.png" title="plot of chunk unnamed-chunk-2" alt="plot of chunk unnamed-chunk-2" style="display: block; margin: auto;" />
 
+Quan sát chuỗi dữ liệu, nhìn chung có sự thay đổi giữa các năm từ 2010 - 2020, cụ thể:
+
+  - Giá trị xuất khẩu xăng, dầu đạt giá trị lớn nhất là 225 triệu USD vào 2012-03-30; nhỏ nhất là 37 triệu USD vào 2020-05-29.
+  - Từ năm 2010 - 2020, giá trị xuất khẩu xăng dầu có xu hướng giảm.
+  
 ## Thống kê mô tả
 ========================================================
 
@@ -109,6 +114,7 @@ alternative hypothesis: stationary
 
 ## Kiểm tra sự tồn tại tính mùa của chuỗi sai phân
 ========================================================
+
 Để thực hiện ước lượng mô hình SARIMA thì chuỗi thời gian phải tồn tại yếu tố mùa vụ. Thực hiện WO-test để kiểm tra tính mùa trong chuỗi:
 
 ```

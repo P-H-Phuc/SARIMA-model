@@ -35,7 +35,7 @@ Trong đó:
 ## Dữ liệu giá trị xuất khẩu xăng, dầu hoả của Việt Nam 2010 - 2020
 ========================================================
 
-<img src="Sarima-figure/unnamed-chunk-2-1.png" title="plot of chunk unnamed-chunk-2" alt="plot of chunk unnamed-chunk-2" style="display: block; margin: auto;" />
+<img src="Sarima-figure/plotdata-1.png" title="plot of data" alt="plot" style="display: block; margin: auto;" />
 
 Quan sát chuỗi dữ liệu, nhìn chung có sự thay đổi giữa các năm từ 2010 - 2020, cụ thể:
 
@@ -57,7 +57,7 @@ Kết quả thống kê mô tả giá trị xuất khẩu xăng, dầu hoả:
  Max.   :2020-12-31   Max.   :225.00  
 ```
 
-<img src="Sarima-figure/unnamed-chunk-4-1.png" title="plot of chunk unnamed-chunk-4" alt="plot of chunk unnamed-chunk-4" style="display: block; margin: auto;" />
+<img src="Sarima-figure/stat_description-1.png" title="stat" alt="boxplot" style="display: block; margin: auto;" />
 
 Quan sát box plot, ta thấy rằng dữ liệu có phân phối lệch phải và không chứa giá trị ngoại lệ.
 
@@ -66,13 +66,12 @@ Quan sát box plot, ta thấy rằng dữ liệu có phân phối lệch phải 
 
 Chia tập training/testing sao cho năm 2018 - 2020 sẽ được sử dụng làm dữ liệu test và dữ liệu còn lại được sử dụng để huấn luyện mô hình.
 
-<img src="Sarima-figure/unnamed-chunk-5-1.png" title="plot of chunk unnamed-chunk-5" alt="plot of chunk unnamed-chunk-5" style="display: block; margin: auto;" />
+<img src="Sarima-figure/split data plot-1.png" title="Split data" alt="plot of chunk unnamed-chunk-5" style="display: block; margin: auto;" />
 
 ## Kiểm tra tính dừng của chuỗi dữ liệu training
 ========================================================
 
 ```
-
 	Augmented Dickey-Fuller Test
 
 data:  training
@@ -100,7 +99,7 @@ alternative hypothesis: stationary
 ## Đồ thị chuỗi sai phân bậc 1
 ========================================================
 
-<img src="Sarima-figure/unnamed-chunk-8-1.png" title="plot of chunk unnamed-chunk-8" alt="plot of chunk unnamed-chunk-8" style="display: block; margin: auto;" />
+<img src="Sarima-figure/different 1 plot-1.png" title="plot of diff 1" alt="plot diff" style="display: block; margin: auto;" />
   
   - Từ đồ thị PACF, các bậc của AR có thể có: p = {0, 1}
 
@@ -125,13 +124,12 @@ The WO - test identifies seasonality
 ## Phân tách các yếu tố trong chuỗi sai phân
 ========================================================
 
-<img src="Sarima-figure/unnamed-chunk-10-1.png" title="plot of chunk unnamed-chunk-10" alt="plot of chunk unnamed-chunk-10" style="display: block; margin: auto;" />
+<img src="Sarima-figure/decompose plot-1.png" title="Decompose plot" alt="plot decompose" style="display: block; margin: auto;" />
 
 ## Kiểm tra tính dừng chuỗi mùa vụ
 ========================================================
 
 ```
-
 	Augmented Dickey-Fuller Test
 
 data:  component$seasonal
@@ -144,7 +142,7 @@ alternative hypothesis: stationary
 ## Lựa chọn tham số P, Q cho thành phần mùa AR, MA
 ========================================================
 
-<img src="Sarima-figure/unnamed-chunk-12-1.png" title="plot of chunk unnamed-chunk-12" alt="plot of chunk unnamed-chunk-12" style="display: block; margin: auto;" />
+<img src="Sarima-figure/seasonal plot-1.png" title="plot seasonal" alt="plot season" style="display: block; margin: auto;" />
 
   - Từ đồ thị PACF: P = {0, 1}
   - Đồ thị ACF: Q = {0, 1}
@@ -248,7 +246,7 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 ## Dự báo bằng SARIMA(0,1,1)(0,0,2)[12]
 ========================================================
 
-<img src="Sarima-figure/unnamed-chunk-18-1.png" title="plot of chunk unnamed-chunk-18" alt="plot of chunk unnamed-chunk-18" style="display: block; margin: auto;" />
+<img src="Sarima-figure/predict plot-1.png" title="plot predict" alt="plot pre" style="display: block; margin: auto;" />
 
 ```
                     ME     RMSE     MAE       MPE     MAPE      MASE       ACF1
@@ -275,18 +273,18 @@ Model df: 3.   Total lags used: 19
 ## Dự báo ngoài mẫu
 ========================================================
 
-<img src="Sarima-figure/unnamed-chunk-21-1.png" title="plot of chunk unnamed-chunk-21" alt="plot of chunk unnamed-chunk-21" style="display: block; margin: auto;" />
+<img src="Sarima-figure/predict out sample plot-1.png" title="plot out-sample" alt="plot of chunk unnamed-chunk-21" style="display: block; margin: auto;" />
 
 ## Kiểm tra kết quả dự báo
 =========================================================
 
-<img src="Sarima-figure/unnamed-chunk-22-1.png" title="plot of chunk unnamed-chunk-22" alt="plot of chunk unnamed-chunk-22" style="display: block; margin: auto;" />
+<img src="Sarima-figure/test predict plot-1.png" title="plot test" alt="plot test" style="display: block; margin: auto;" />
 
 Sai số dự báo RMSE: ```18.888```
 
 ## Dự báo cho năm 2021
 =========================================================
-<img src="Sarima-figure/unnamed-chunk-24-1.png" title="plot of chunk unnamed-chunk-24" alt="plot of chunk unnamed-chunk-24" style="display: block; margin: auto;" />
+<img src="Sarima-figure/predict plot 2021-1.png" title="plot 2021" alt="plot 2021" style="display: block; margin: auto;" />
 
 
 ## Kết luận 
